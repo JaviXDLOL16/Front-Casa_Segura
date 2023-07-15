@@ -4,13 +4,16 @@ import { useFonts } from "expo-font";
 import { useCallback, useEffect } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import { KeyboardAvoidingView } from "react-native";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scrollview";
 
-import { background } from "../assets";
+
 import { background2 } from "../assets";
 import { Logo } from "../assets";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import { LogoG } from "../assets";
+
+
+
 
 export default function Login() {
   const [fontsLoaded] = useFonts({
@@ -40,9 +43,10 @@ export default function Login() {
         className="absolute top-0 bottom-0 left-0 right-0 w-[100%] h-[80%] "
       />
 
-      <View className="mt-[20%] ml-[5%] shadow-sm">
+      <View className="mt-[20%] ml-[5%]">
         <Image
-          source={Logo} // Ruta del logo
+         className="w-[180] h-[30]"
+         source={LogoG} // Ruta del logo
         />
       </View>
       <View className="items-center justify-end flex-1 mb-[5%] ">

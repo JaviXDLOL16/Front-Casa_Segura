@@ -1,12 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import Movements from './screens/Movements';
-import Temperature from './screens/Temperature';
+import Login from './screens/Login';
 
 export default function App() {
   return (
   <>
 <StatusBar style="light"/>
-    <Movements></Movements>
+<Login></Login>
   </>
 
   );

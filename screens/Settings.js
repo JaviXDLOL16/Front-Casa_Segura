@@ -7,10 +7,10 @@ import * as SplashScreen from "expo-splash-screen";
 import SectionIndicator from '../components/SectionIndicator';
 import Task from '../components/Task';
 import Circle from '../components/Circle';
-import Table from '../components/Table';
 
 
-export default function Movements() {
+
+export default function Settings() {
     const [fontsLoaded] = useFonts({
         MulishBold: require("../assets/fonts/Mulish-Bold.ttf"),
         MulishLight: require("../assets/fonts/Mulish-Light.ttf"),
@@ -39,16 +39,7 @@ Texto={"Temperatura"}
 />
 
 <ScrollView className="w-[94%]">
-<Circle
-Informacion={"Movimientos detectados hoy"}
-Datos={"0"}
-/>
-<Table
-Sensor={1}
-Movimientos={2}
-Fecha={"12-07-2023"}
-Hora={"12:55 a.m."}
-/>
+
 </ScrollView>
 <Task></Task>
  </View>
