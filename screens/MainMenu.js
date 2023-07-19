@@ -3,14 +3,17 @@ import {Text, View,SafeAreaView } from 'react-native';
 import { useFonts } from "expo-font";
 import { useCallback, useEffect } from "react";
 import * as SplashScreen from "expo-splash-screen";
-import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+
 
 import SectionIndicator from '../components/SectionIndicator';
 import Wheather from '../components/Weather';
 import DashboardButton from '../components/DashboardButton';
 import Task from '../components/Task';
+import { ScrollView } from 'native-base';
 
 export default function MainMenu() {
+    const navigation = useNavigation();
     const [fontsLoaded] = useFonts({
         MulishBold: require("../assets/fonts/Mulish-Bold.ttf"),
         MulishLight: require("../assets/fonts/Mulish-Light.ttf"),
@@ -30,6 +33,10 @@ export default function MainMenu() {
       }, [fontsLoaded]);
     
       if (!fontsLoaded) return null;
+
+      const handleButtonPress = (onPress) => {
+        navigation.navigate(onPress);
+      };
     
   return (
 
@@ -46,28 +53,29 @@ Min={"42°"}
 Temperatura={"65°"}
 />
 
-<DashboardButton
+<View className="h-[60%] justify-center">
+   <DashboardButton
+onPress={() => handleButtonPress('Movements')}
 Datos="Movimientos"
 Icono="body"
 />
 
 <DashboardButton
+onPress={() => handleButtonPress('Temperature')}
 Datos="Temperatura"
 Icono="partly-sunny"
 />
 
 <DashboardButton
+onPress={() => handleButtonPress('Gas')}
 Datos="Monitor de humo"
 Icono="flame"
+/> 
+
+</View>
+
+<Task
 />
-
-<DashboardButton
-Datos="Sensor de luz"
-Icono="flash"
-/>
-
-
-<Task></Task>
 
 
  </View>

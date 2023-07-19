@@ -35,7 +35,7 @@ export default function Gas() {
 
  <View className="flex-1 h-[100%] bg-[#F0F0F2] items-center" onLayout={onLayout}>
 <SectionIndicator
-Texto={"Temperatura"}
+Texto={"Monitor de humo"}
 />
 
 <ScrollView className="w-[94%]">

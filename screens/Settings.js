@@ -34,14 +34,8 @@ export default function Settings() {
   return (
 
  <View className="flex-1 h-[100%] bg-[#F0F0F2] items-center" onLayout={onLayout}>
-<SectionIndicator
-Texto={"Temperatura"}
-/>
 
-<ScrollView className="w-[94%]">
 
-</ScrollView>
-<Task></Task>
  </View>
 
   );

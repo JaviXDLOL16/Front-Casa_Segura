@@ -21,7 +21,7 @@ export default function Wheather({Temperatura,Max,Min,Lugar}) {
 
     
   return (
-<View className="bg-white mb-[8%] w-[94%] h-[8%] rounded-sm shadow-md flex-row">
+<View className="bg-white w-[94%] h-[8%] rounded-sm shadow-md flex-row mb-[12%]">
 <View className="w-[50%] h-[100%]">
 <View className="h-[50%] flex-row items-center justify-center">
     
@@ -38,9 +38,6 @@ export default function Wheather({Temperatura,Max,Min,Lugar}) {
                   fontFamily: "MulishBold",
                   fontSize: 28,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
                 }}
               >
                 {Temperatura}
@@ -54,9 +51,6 @@ export default function Wheather({Temperatura,Max,Min,Lugar}) {
                   fontFamily: "MulishBold",
                   fontSize: 14,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
                 }}
               >
                 Max.: 
@@ -66,9 +60,6 @@ export default function Wheather({Temperatura,Max,Min,Lugar}) {
                   fontFamily: "MulishBold",
                   fontSize: 14,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
                 }}
               >
                  {Max}
@@ -80,9 +71,6 @@ export default function Wheather({Temperatura,Max,Min,Lugar}) {
                   fontFamily: "MulishBold",
                   fontSize: 14,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
                 }}
               >
                 Min.: 
@@ -92,9 +80,6 @@ export default function Wheather({Temperatura,Max,Min,Lugar}) {
                   fontFamily: "MulishBold",
                   fontSize: 14,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
                 }}
               >
                  {Min}
@@ -110,9 +95,6 @@ export default function Wheather({Temperatura,Max,Min,Lugar}) {
                   fontFamily: "MulishBold",
                   fontSize: 22,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
                 }}
               >
                 {Lugar}

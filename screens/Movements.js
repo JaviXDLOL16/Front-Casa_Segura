@@ -35,7 +35,7 @@ export default function Movements() {
 
  <View className="flex-1 h-[100%] bg-[#F0F0F2] items-center" onLayout={onLayout}>
 <SectionIndicator
-Texto={"Temperatura"}
+Texto={"Movimientos"}
 />
 
 <ScrollView className="w-[94%]">

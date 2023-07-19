@@ -9,6 +9,10 @@ export default function Input({
   password,
   secureTextEntry,
   secure,
+  onChangeText,
+  onBlur,
+  autoCapitalize,
+  value
 }) {
   const [fontsLoaded] = useFonts({
     MulishBold: require("../assets/fonts/Mulish-Bold.ttf"),
@@ -34,6 +38,10 @@ export default function Input({
         secureTextEntry={isSecure}
         returnKeyType="done"
         onSubmitEditing={Keyboard.dismiss}
+        onChangeText={onChangeText}
+        onBlur={onBlur}
+        autoCapitalize={autoCapitalize}
+        value={value}
       />
       {secure && (
         <View className="pr-2">

@@ -1,25 +1,86 @@
 
-import { Text, View, Image, TextInput } from "react-native";
+import { Text, View, Image, Alert } from "react-native";
 import { useFonts } from "expo-font";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState, useLayoutEffect } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import { KeyboardAvoidingView } from "react-native";
+import axios from "axios";
+import { Formik } from "formik";
+import * as Yup from 'yup';
+import { useNavigation } from "@react-navigation/native";
+import { Storage } from "expo-storage";
 
 
 import { background2 } from "../assets";
-import { Logo } from "../assets";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { LogoG } from "../assets";
+import { BASE_URL } from '@env'
+
+
 
 
 
 
 export default function Login() {
+  const navigation = useNavigation();
+  const [isLoading, setIsLoading] = useState(false)
+
+
   const [fontsLoaded] = useFonts({
     MulishBold: require("../assets/fonts/Mulish-Bold.ttf"),
     MulishLight: require("../assets/fonts/Mulish-Light.ttf"),
   });
+
+  
+
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false,
+    });
+  }, []);
+
+  const saveToken = async (data) => {
+    try {
+      await Storage.setItem({
+        key: `user-token`,
+        value: JSON.stringify(data)
+      })
+    } catch (error) {
+    }
+  }
+
+  const handleLogin = async (values, resetForm) => {//ahi nomas quedo manito, ya hasta guarda el token, lo demas de los botones y ese pedo no se como hacerlo xd
+                                                    //despues veo lo de sacar los datos para la grafica
+    setIsLoading(true)
+    try {
+      const response = await axios.post(`${BASE_URL}auth/token`, values);
+      if (response.data.success == true) {
+        //setIsCorrect(true)
+        saveToken(response.data.data)
+        resetForm()
+        navigation.navigate('MainMenu')
+      }
+      else if (response.data.success == false) {
+        Alert.alert('Usuario incorrecto')
+        setIsLoading(false)
+        //setIsWrong(true)
+      }
+      else if (response.data.status == null) {
+        Alert.alert('Error al iniciar sesion')
+        setIsLoading(false)
+      }
+      else {
+        Alert.alert('Error desconocido')
+        setIsLoading(false)
+      }
+      return response.data;
+    }
+    catch (e) {
+    }
+
+  };
 
   useEffect(() => {
     async function prepare() {
@@ -36,7 +97,26 @@ export default function Login() {
 
   if (!fontsLoaded) return null;
 
+
+
+  const SignupSchema = Yup.object().shape({
+    email: Yup.string().email('Ingresa un correo "@"').required('No ha ingresado un email'),
+    password: Yup.string().required('No ha ingresado una contraseña'),
+  })
+
+
   return (
+    <Formik
+    initialValues={{
+      email: '',
+      password: ''
+    }}
+    validationSchema={SignupSchema}
+    onSubmit={(values, { resetForm }) => {
+      handleLogin(values, resetForm)
+    }}
+  >
+    {({ values, errors, touched, handleChange, setFieldTouched, isValid, handleSubmit }) => (
     <View className="bg-[#565759] flex-1" onLayout={onLayout}>
       <Image
         source={background2} // Ruta de la imagen de fondo
@@ -96,12 +176,18 @@ export default function Login() {
               </Text>
             </View>
             <Input
-              placeholder="Ingresa tu usuario"
+              placeholder="Ingresa tu correo"
               password={false}
               secureTextEntry={false}
               secure={false}
+              onChangeText={handleChange('email')}
+              onBlur={() => setFieldTouched('email')}
+              autoCapitalize={"none"}
+              value={values.email}
             />
-
+            {touched.email && errors.email && (
+            <Text >{errors.email}</Text>
+            )}
             <View className="w-[75%] flex-row justify-between mt-10 mb-1">
               <Text
                 style={{
@@ -127,11 +213,23 @@ export default function Login() {
               password={true}
               secureTextEntry={true}
               secure={true}
+              onChangeText={handleChange('password')}
+              onBlur={() => setFieldTouched('password')}
+              value={values.password}
             />
-            <Button></Button>
+            {touched.password && errors.password && (
+            <Text>{errors.password}</Text>
+            )}
+            <Button
+            onPressIn={handleSubmit}
+            />
           </View>
         </KeyboardAvoidingView>
       </View>
     </View>
+
+)
+}
+</Formik >
   );
 }

@@ -18,7 +18,7 @@ export default function SectionIndicator({Texto}) {
 
     
   return (
-    <View className="bg-[#565759] h-[10%] items-center justify-center w-[100%] rounded-b-lg mb-2 shadow-sm shadow-[#565759]">
+    <View className="bg-[#565759] h-[10%] items-center justify-center w-[100%] rounded-b-lg shadow-sm shadow-[#565759]">
         <Text
         className="mt-[6%]"
     style={{
