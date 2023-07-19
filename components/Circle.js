@@ -3,7 +3,7 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import {Text, View,ScrollView } from 'react-native';
 
-export default function Circle({Datos,Informacion}) {
+export default function Circle({Datos,Informacion, TextColor = "#565759" }) {
   const [fontsLoaded] = useFonts({
     MulishBold: require("../assets/fonts/Mulish-Bold.ttf"),
     MulishLight: require("../assets/fonts/Mulish-Light.ttf"),
@@ -26,9 +26,7 @@ export default function Circle({Datos,Informacion}) {
                   fontFamily: "MulishBold",
                   fontSize: 26,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
+                  
                 }}
               >
                 {Informacion}
@@ -41,10 +39,8 @@ export default function Circle({Datos,Informacion}) {
                     textAlign: 'center',
                   fontFamily: "MulishBold",
                   fontSize: 40,
-                  color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
+                  color: {TextColor},
+                  
                 }}
               >
                {Datos}

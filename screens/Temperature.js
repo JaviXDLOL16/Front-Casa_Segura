@@ -59,6 +59,7 @@ Texto={"Temperatura"}
 <Circle
 Informacion={"Temperatura Interior"}
 Datos={"55°"}
+colorText='#321333'
 />
 <Graphic
 temp={temp}

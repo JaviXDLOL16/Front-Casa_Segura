@@ -1,5 +1,5 @@
 
-import {Text, View,SafeAreaView } from 'react-native';
+import { Text, View, SafeAreaView } from 'react-native';
 import { useFonts } from "expo-font";
 import { useCallback, useEffect } from "react";
 import * as SplashScreen from "expo-splash-screen";
@@ -10,75 +10,77 @@ import SectionIndicator from '../components/SectionIndicator';
 import Wheather from '../components/Weather';
 import DashboardButton from '../components/DashboardButton';
 import Task from '../components/Task';
-import { ScrollView } from 'native-base';
 
 export default function MainMenu() {
-    const navigation = useNavigation();
-    const [fontsLoaded] = useFonts({
-        MulishBold: require("../assets/fonts/Mulish-Bold.ttf"),
-        MulishLight: require("../assets/fonts/Mulish-Light.ttf"),
-      });
-    
-      useEffect(() => {
-        async function prepare() {
-          await SplashScreen.preventAutoHideAsync();
-        }
-        prepare();
-      }, []);
-    
-      const onLayout = useCallback(async () => {
-        if (fontsLoaded) {
-          await SplashScreen.hideAsync();
-        }
-      }, [fontsLoaded]);
-    
-      if (!fontsLoaded) return null;
+  const navigation = useNavigation();
+  const [fontsLoaded] = useFonts({
+    MulishBold: require("../assets/fonts/Mulish-Bold.ttf"),
+    MulishLight: require("../assets/fonts/Mulish-Light.ttf"),
+  });
 
-      const handleButtonPress = (onPress) => {
-        navigation.navigate(onPress);
-      };
-    
+  useEffect(() => {
+    async function prepare() {
+      await SplashScreen.preventAutoHideAsync();
+    }
+    prepare();
+  }, []);
+
+  const onLayout = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) return null;
+
+  const handleButtonPress = (onPress) => {
+    navigation.navigate(onPress);
+  };
+
   return (
 
- <View className="flex-1 bg-[#F0F0F2] items-center justify-between" onLayout={onLayout}>
+    <View className="flex-1 bg-[#F0F0F2] items-center justify-start" onLayout={onLayout}>
 
-<SectionIndicator
-Texto={"Menu principal"}
-/>
+      <SectionIndicator
+        Texto={"Menu principal"}
+      />
 
-<Wheather
-Lugar={"Tuxtla Gutierrez"}
-Max={"38°"}
-Min={"42°"}
-Temperatura={"65°"}
-/>
+      <Wheather
+        Lugar={"Tuxtla Gutierrez"}
+        Max={"38°"}
+        Min={"42°"}
+        Temperatura={"65°"}
+      />
 
-<View className="h-[60%] justify-center">
-   <DashboardButton
-onPress={() => handleButtonPress('Movements')}
-Datos="Movimientos"
-Icono="body"
-/>
+      <View className="h-[60%] justify-start px-2 mt-12">
+        <DashboardButton
+          onPress={() => handleButtonPress('Movements')}
+          Datos="Movimientos"
+          Icono="body"
+          color={"#559CAD"}
+        />
 
-<DashboardButton
-onPress={() => handleButtonPress('Temperature')}
-Datos="Temperatura"
-Icono="partly-sunny"
-/>
+        <DashboardButton
+          onPress={() => handleButtonPress('Temperature')}
+          Datos="Temperatura"
+          Icono="partly-sunny"
+          color={"#565759"}
+        />
 
-<DashboardButton
-onPress={() => handleButtonPress('Gas')}
-Datos="Monitor de humo"
-Icono="flame"
-/> 
+        <DashboardButton
+          onPress={() => handleButtonPress('Gas')}
+          Datos="Monitor de humo"
+          Icono="flame"
+          color="#E65F5C"
+        />
 
-</View>
+      </View>
 
-<Task
-/>
+      <Task
+      />
 
 
- </View>
+    </View>
 
   );
 }

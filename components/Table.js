@@ -27,9 +27,7 @@ export default function Table({Sensor,Movimientos,Fecha,Hora}) {
                   fontFamily: "MulishBold",
                   fontSize: 14,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
+                  
                 }}
               >
                 Sensor
@@ -42,9 +40,7 @@ export default function Table({Sensor,Movimientos,Fecha,Hora}) {
                   fontFamily: "MulishBold",
                   fontSize: 14,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
+                  
                 }}
               >
                 Movimientos
@@ -57,9 +53,7 @@ export default function Table({Sensor,Movimientos,Fecha,Hora}) {
                   fontFamily: "MulishBold",
                   fontSize: 14,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
+                  
                 }}
               >
                 Hora
@@ -72,9 +66,7 @@ export default function Table({Sensor,Movimientos,Fecha,Hora}) {
                   fontFamily: "MulishBold",
                   fontSize: 14,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
+                  
                 }}
               >
                 Fecha
@@ -90,9 +82,7 @@ export default function Table({Sensor,Movimientos,Fecha,Hora}) {
                   fontFamily: "MulishLight",
                   fontSize: 14,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
+                  
                 }}
               >
                 {Sensor}
@@ -105,9 +95,7 @@ export default function Table({Sensor,Movimientos,Fecha,Hora}) {
                   fontFamily: "MulishLight",
                   fontSize: 14,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
+                  
                 }}
               >
                 {Movimientos}
@@ -120,9 +108,7 @@ export default function Table({Sensor,Movimientos,Fecha,Hora}) {
                   fontFamily: "MulishLight",
                   fontSize: 14,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
+                  
                 }}
               >
                 {Hora}
@@ -135,9 +121,7 @@ export default function Table({Sensor,Movimientos,Fecha,Hora}) {
                   fontFamily: "MulishLight",
                   fontSize: 14,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
+                  
                 }}
               >
                 {Fecha}

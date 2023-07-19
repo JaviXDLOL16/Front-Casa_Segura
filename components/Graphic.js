@@ -29,7 +29,7 @@ export default function Graphic({temp}) {
   const chartConfig = {
     backgroundGradientFromOpacity: 0,
     backgroundGradientToOpacity: 0,
-    color: (opacity = 0) => `rgba(33, 78, 52, ${opacity})`,
+    color: (opacity = 0) => `rgba(12, 12, 12, ${opacity})`,
     strokeWidth: 3, // optional, default 3
     barPercentage: 1,
     useShadowColorFromDataset: true, // optional
@@ -78,9 +78,7 @@ export default function Graphic({temp}) {
                   fontFamily: "MulishLight",
                   fontSize: 14,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
+                  
                 }}
               >
                 {data.datasets[0].data[index]}°
@@ -95,12 +93,10 @@ return (
     <View className="pb-[5%] pt-[2%] pl-[2%]">
   <Text
                 style={{
-                  fontFamily: "MulishLight",
+                  fontFamily: "MulishBold",
                   fontSize: 14,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
+                  
                 }}
               >
                 Temperatura
@@ -122,12 +118,10 @@ return (
 <View className="items-center pb-[2%]">
 <Text
                 style={{
-                  fontFamily: "MulishLight",
+                  fontFamily: "MulishBold",
                   fontSize: 14,
                   color: "#565759",
-                  textShadowColor: "#565759",
-                  textShadowOffset: { width: 0, height: 1 },
-                  textShadowRadius: 2,
+                  
                 }}
               >
                 Hora
