@@ -23,6 +23,7 @@ export default function MainMenu() {
       await SplashScreen.preventAutoHideAsync();
     }
     prepare();
+    
   }, []);
 
   const onLayout = useCallback(async () => {
