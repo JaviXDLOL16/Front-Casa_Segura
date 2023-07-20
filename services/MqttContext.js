@@ -1,6 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react';
 import MQTT from '@openrc/react-native-mqtt';
 import { URL_MQTT, PORT_MQTT } from '@env'
+import { schedulePushNotification } from '../components/NotificationConfiguration';
+import { scheduleNotificationAsync } from 'expo-notifications';
 
 export const MqttContext = createContext();
 
@@ -58,6 +60,9 @@ export const MqttProvider = ({ children }) => {
         if (topic === '/homeSecure/esp32/alarm/json'){
           let data = JSON.parse(msg.toString());
           console.log('mqtt event message', data);
+          setReceivedAirJson(data)
+          let body = "Alerta detectada"
+          schedulePushNotification(data.mesage,body)
           setReceivedAlarmJson(data)
         }
 
@@ -67,13 +72,6 @@ export const MqttProvider = ({ children }) => {
           setReceivedAirJson(data)
         }
 
-       /* if (topic === '/homeSecure/esp32/alarm'){
-          let data = JSON.parse(msg.toString());
-          console.log('mqtt event message', data);
-          setReceivedAlarm(data)
-        }*/
-
-        
 
         if (topic === '/homeSecure/esp32/nightMode/json'){
           let data = JSON.parse(msg.toString());
