@@ -46,11 +46,12 @@ export default function Settings() {
 
   return (
 
- <View className="flex-1 h-[100%] bg-[#F0F0F2] items-center" onLayout={onLayout}>
+ <View className="flex-1 h-[100%] bg-[#F0F0F2] items-center justify-center" onLayout={onLayout}>
   <Button
+            
             onPressIn={deleteData}
-
             />
+            <Task></Task>
 
  </View>
 

@@ -95,7 +95,7 @@ export default function MainMenu() {
 
   return (
 
-    <View className="flex-1 bg-[#F0F0F2] items-center justify-start" onLayout={onLayout}>
+    <View className="flex-1 bg-[#F0F0F2] items-center justify-between" onLayout={onLayout}>
 
 <SectionIndicator
 Texto={"Menu principal"}
@@ -103,9 +103,9 @@ Texto={"Menu principal"}
 {weatherData && municipio ? (
 <Wheather
 Lugar={municipio}
-Max={weatherData.main.temp_max.toFixed(0)-268}
-Min={weatherData.main.temp_min.toFixed(0)-276}
-Temperatura={weatherData.main.temp.toFixed(0)-273}
+Max={weatherData.main.temp_max.toFixed(0)-268+"°"}
+Min={weatherData.main.temp_min.toFixed(0)-276+"°"}
+Temperatura={weatherData.main.temp.toFixed(0)-273+"°"}
 />
 
 ) : (
