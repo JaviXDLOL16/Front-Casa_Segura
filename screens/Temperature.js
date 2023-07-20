@@ -60,6 +60,7 @@ export default function Temperature() {
   return (
 
     <View className="flex-1 bg-[#F0F0F2] items-center" onLayout={onLayout}>
+      
       <SectionIndicator
         Texto={"Temperatura"}
       />
