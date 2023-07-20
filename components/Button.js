@@ -3,7 +3,7 @@ import { Text,TouchableOpacity} from "react-native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
-export default function Button({onPressIn, color = "#559CAD"}) {
+export default function Button({onPressIn, color = "#559CAD",TextI}) {
   const [fontsLoaded] = useFonts({
     MulishBold: require("../assets/fonts/Mulish-Bold.ttf"),
     MulishLight: require("../assets/fonts/Mulish-Light.ttf"),
@@ -34,7 +34,7 @@ export default function Button({onPressIn, color = "#559CAD"}) {
       textShadowRadius: 2,
     }}
   >
-    Iniciar sesión
+    {TextI}
   </Text>
 </TouchableOpacity>
   );

@@ -61,8 +61,7 @@ export const MqttProvider = ({ children }) => {
           let data = JSON.parse(msg.toString());
           console.log('mqtt event message', data);
           setReceivedAirJson(data)
-          let body = "Alerta detectada"
-          schedulePushNotification(data.mesage,body)
+          schedulePushNotification()
           setReceivedAlarmJson(data)
         }
 

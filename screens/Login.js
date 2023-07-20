@@ -78,7 +78,7 @@ export default function Login() {
       return response.data;
     }
     catch (e) {
-      console.log(e)
+      console.log("error: ",e)
     }
 
   };
@@ -210,6 +210,7 @@ export default function Login() {
               </Text>
             </View>
             <Input
+            
               placeholder="Ingresa tu contraseña"
               password={true}
               secureTextEntry={true}
@@ -222,6 +223,7 @@ export default function Login() {
             <Text>{errors.password}</Text>
             )}
             <Button
+            TextI={"Iniciar sesion"}
             onPressIn={handleSubmit}
             />
           </View>

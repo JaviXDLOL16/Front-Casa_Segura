@@ -22,7 +22,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName="MainMenu" >
+          initialRouteName="Login" >
           <Stack.Screen name="MainMenu" component={MainMenu} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Notification" component={NotificationConfiguration} />
