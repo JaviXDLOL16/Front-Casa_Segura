@@ -51,8 +51,8 @@ export default function Login() {
     }
   }
 
-  const handleLogin = async (values, resetForm) => {//ahi nomas quedo manito, ya hasta guarda el token, lo demas de los botones y ese pedo no se como hacerlo xd
-                                                    //despues veo lo de sacar los datos para la grafica
+  const handleLogin = async (values, resetForm) => {
+    console.log("entro")
     setIsLoading(true)
     try {
       const response = await axios.post(`${BASE_URL}auth/token`, values);
@@ -78,6 +78,7 @@ export default function Login() {
       return response.data;
     }
     catch (e) {
+      console.log(e)
     }
 
   };
