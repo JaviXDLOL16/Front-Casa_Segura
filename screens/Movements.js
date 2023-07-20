@@ -9,6 +9,7 @@ import Task from '../components/Task';
 import Circle from '../components/Circle';
 import Table from '../components/Table';
 import NightMode from '../components/NightMode';
+import Alarm from '../components/Alarm';
 
 
 export default function Movements() {
@@ -44,7 +45,7 @@ export default function Movements() {
           Informacion={"Movimientos detectados hoy"}
           Datos={"0"}
         />
-        <NightMode/>
+        <Alarm buttonOnTopic={"/homeSecure/esp32/alarm"} buttonOffTopic={"/homeSecure/esp32/alarm"}/>
         <Table
           Sensor={1}
           Movimientos={2}
