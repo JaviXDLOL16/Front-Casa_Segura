@@ -3,7 +3,7 @@ import { Text,TouchableOpacity} from "react-native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
-export default function Button({onPressIn}) {
+export default function Button({onPressIn, color = "#559CAD"}) {
   const [fontsLoaded] = useFonts({
     MulishBold: require("../assets/fonts/Mulish-Bold.ttf"),
     MulishLight: require("../assets/fonts/Mulish-Light.ttf"),
@@ -21,7 +21,8 @@ export default function Button({onPressIn}) {
 <TouchableOpacity
   onPressIn={onPressIn}
   activeOpacity={0.8}
-  className="bg-[#559CAD] rounded-md min-h-[9%] max-h-3 justify-center items-center w-[70%] shadow-sm shadow-[#565759] mt-12"
+  className={`rounded-md min-h-[9%] max-h-3 justify-center items-center w-[70%] shadow-sm shadow-[#565759] mt-12`}
+  style={{backgroundColor: color}}
 >
   <Text
     style={{

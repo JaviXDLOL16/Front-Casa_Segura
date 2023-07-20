@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
+import { MqttProvider } from './services/MqttContext';
 
 import Settings from './screens/Settings';
 import Login from './screens/Login';
@@ -14,9 +15,10 @@ export default function App() {
 
   const Stack = createNativeStackNavigator();
   return (
-  <>
-<StatusBar style="light"/>
-<NavigationContainer>
+
+    <MqttProvider>
+      <StatusBar style="light" />
+      <NavigationContainer>
         <Stack.Navigator
           screenOptions={{ headerShown: false }}
           initialRouteName="MainMenu" >
@@ -28,7 +30,7 @@ export default function App() {
           <Stack.Screen name="Gas" component={Gas} />
         </Stack.Navigator>
       </NavigationContainer>
-  </>
+    </MqttProvider>
 
   );
 }

@@ -1,5 +1,5 @@
 
-import {Text, View,SafeAreaView } from 'react-native';
+import { Text, View, SafeAreaView } from 'react-native';
 import { useFonts } from "expo-font";
 import { useCallback, useEffect,useState } from "react";
 import * as SplashScreen from "expo-splash-screen";
@@ -113,7 +113,7 @@ export default function MainMenu() {
     
   return (
 
- <View className="flex-1 bg-[#F0F0F2] items-center justify-between" onLayout={onLayout}>
+    <View className="flex-1 bg-[#F0F0F2] items-center justify-start" onLayout={onLayout}>
 
 <SectionIndicator
 Texto={"Menu principal"}
@@ -142,25 +142,27 @@ Datos="Movimientos"
 Icono="body"
 />
 
-<DashboardButton
-onPress={() => handleButtonPress('Temperature')}
-Datos="Temperatura"
-Icono="partly-sunny"
-/>
+        <DashboardButton
+          onPress={() => handleButtonPress('Temperature')}
+          Datos="Temperatura"
+          Icono="partly-sunny"
+          color={"#565759"}
+        />
 
-<DashboardButton
-onPress={() => handleButtonPress('Gas')}
-Datos="Monitor de humo"
-Icono="flame"
-/> 
+        <DashboardButton
+          onPress={() => handleButtonPress('Gas')}
+          Datos="Monitor de humo"
+          Icono="flame"
+          color="#E65F5C"
+        />
 
-</View>
+      </View>
 
-<Task
-/>
+      <Task
+      />
 
 
- </View>
+    </View>
 
   );
 }
