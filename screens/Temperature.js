@@ -13,11 +13,13 @@ import Graphic from '../components/Graphic';
 
 import { MqttContext } from '../services/MqttContext';
 import AC from '../components/AC';
+import Stadistic from '../components/Stadistic';
 
 export default function Temperature() {
 
-  const { receivedTemperature } = useContext(MqttContext);
 
+  const { receivedTemperature } = useContext(MqttContext);
+  const [statsData, StatsuserData] = useState(null);
   const [fontsLoaded] = useFonts({
     MulishBold: require("../assets/fonts/Mulish-Bold.ttf"),
     MulishLight: require("../assets/fonts/Mulish-Light.ttf"),
@@ -45,7 +47,17 @@ export default function Temperature() {
 
   if (!fontsLoaded) return null;
 
-
+  useEffect(() => {
+    // Realizar la petición GET a la API
+    axios.get('https://api.example.com/users')
+    StatsuserData.then(response => {
+        // La respuesta contiene los datos de los usuarios
+        (response.data);
+      })
+      .catch(error => {
+        console.log('Error al obtener los datos:', error);
+      });
+  }, []);
 
   const temp = [
     { time: '0:00', temperature: 27 },
@@ -77,6 +89,12 @@ export default function Temperature() {
 
         <Graphic
           temp={temp}
+        />
+        <Stadistic
+                  Sensor={1}
+                  Movimientos={2}
+                  Fecha={"12-07-2023"}
+                  Hora={"12:55 a.m."}
         />
       </ScrollView>
 

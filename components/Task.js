@@ -26,7 +26,7 @@ export default function Task() {
       };
 
   return (
-<View className="w-[100%] h-[60px] bg-[#565759] mt-[8%] rounded-t-lg flex-row absolute bottom-0">
+<View className="w-[100%] h-[60px] bg-[#565759] mt-[8%] rounded-t-lg flex-row bottom-0">
 <View className="w-[50%] items-start justify-center">
 <TouchableOpacity 
 onPress={() => handleButtonPress("MainMenu")}
