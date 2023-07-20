@@ -9,6 +9,7 @@ import MainMenu from './screens/MainMenu'
 import Temperature from './screens/Temperature'
 import Movements from './screens/Movements';
 import Gas from './screens/Gas';
+import NotificationConfiguration from './components/NotificationConfiguration';
 import Task from './components/Task';
 
 export default function App() {
@@ -21,9 +22,10 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName="Temperature" >
+          initialRouteName="Login" >
           <Stack.Screen name="MainMenu" component={MainMenu} />
           <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Notification" component={NotificationConfiguration} />
           <Stack.Screen name="Settings" component={Settings} />
           <Stack.Screen name="Temperature" component={Temperature} />
           <Stack.Screen name="Movements" component={Movements} />

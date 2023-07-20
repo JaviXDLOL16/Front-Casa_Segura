@@ -60,24 +60,19 @@ export default function Temperature() {
   }, []);
 
   const temp = [
-    { time: '8:00', temperature: 27 },
-    { time: '10:00', temperature: 22 },
-    { time: '12:00', temperature: 24 },
-    { time: '14:00', temperature: 28 },
-    { time: '14:00', temperature: 32 },
-    { time: '14:00', temperature: 16 },
-    { time: '14:00', temperature: 20 },
-    { time: '14:00', temperature: 27 },
-    { time: '14:00', temperature: 38 },
-    { time: '14:00', temperature: 20 },
-    { time: '14:00', temperature: 27 },
-    { time: '14:00', temperature: 38 },
+    { time: '0:00', temperature: 27 },
+    { time: '2:00', temperature: 22 },
+    { time: '4:00', temperature: 24 },
+    { time: '6:00', temperature: 28 },
+    { time: '8:00', temperature: 32 },
+    { time: '10:00', temperature: 16 },
     // Agrega más datos según sea necesario
   ];
 
   return (
 
     <View className="flex-1 bg-[#F0F0F2] items-center" onLayout={onLayout}>
+      
       <SectionIndicator
         Texto={"Temperatura"}
       />
