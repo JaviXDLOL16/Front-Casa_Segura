@@ -45,7 +45,7 @@ export const MqttProvider = ({ children }) => {
         console.log('connected mqtt');
         client.subscribe('/homeSecure/esp32/temperature');
         client.subscribe('/homeSecure/esp32/alarm/json');
-        client.subscribe('/homeSecure/esp32/alarm');
+        //client.subscribe('/homeSecure/esp32/alarm');
         client.subscribe('/homeSecure/esp32/air/json');
         client.subscribe('/homeSecure/esp32/nightMode/json');
       });
@@ -53,30 +53,25 @@ export const MqttProvider = ({ children }) => {
       client.on('message', function (topic, msg, packet) {
         if (topic === '/homeSecure/esp32/temperature') {
           let data = msg.toString();
-          //console.log('mqtt event message', data);
+          console.log('mqtt event message', data);
           setReceivedTemperature(data);
+        }
+
+        if (topic === '/homeSecure/esp32/alarm/json'){
+          let data = JSON.parse(msg.toString());
+          console.log('mqtt event message', data);
+          setReceivedAirJson(data)
+          let body = "Alerta detectada"
+          schedulePushNotification(data.mesage,body)
+          setReceivedAlarmJson(data)
         }
 
         if (topic === '/homeSecure/esp32/air/json'){
           let data = JSON.parse(msg.toString());
           console.log('mqtt event message', data);
           setReceivedAirJson(data)
-          let body = "Alerta detectada"
-          schedulePushNotification(data.mesage,body)
         }
 
-        if (topic === '/homeSecure/esp32/alarm'){
-          let data = JSON.parse(msg.toString());
-          console.log('mqtt event message', data);
-          setReceivedAlarm(data)
-        }
-
-        if (topic === '/homeSecure/esp32/alarm/json'){
-          let data = JSON.parse(msg.toString());
-          console.log('mqtt event message', data.data);
-          setReceivedAlarmJson(data)
-          schedulePushNotification()
-        }
 
         if (topic === '/homeSecure/esp32/nightMode/json'){
           let data = JSON.parse(msg.toString());
